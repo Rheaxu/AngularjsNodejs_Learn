@@ -20,6 +20,18 @@
 		return result;
 	}
 	document.write([1,2,3,4].sum());
+
+	// If we only want one array to have sum method, add the sum method to the actual object (this is where prototypes come into play)
+	var a = [15,6,7,8];
+	a.sum = function(){
+		var result = 0;
+		for(var i=0;i<this.length;i++){
+			result += this[i];
+		}
+		return result;
+	}
+	alert(a.sum());
+	alert([1,2,3,4].sum());	// if sum() is not added into the prototype of Array, there will be runtime error... object does not support this property
 </script>
 </body>
 </html>
