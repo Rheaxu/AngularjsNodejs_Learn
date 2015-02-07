@@ -43,6 +43,32 @@
 	for(var i=0;i<people.length;i++){
 		document.write(people[i]+"</br>");
 	}
+
+
+	// join method of array
+	var movies = new Array("Avatar", "Good Will Hunting", "Venilla Sky", "Fight club");
+
+	var string1 = movies.join();
+	var string2 = movies.join("-");
+
+	document.write(string1+"</br>");
+	document.write(string2+"</br></br>");
+
+	// pop method of array: pop out the last element in the array
+	document.write(movies[3]+"</br>");
+	var p = movies.pop();
+	document.write(movies[3]+"</br>");
+	document.write(p+"</br></br>");
+
+	// reverse method of array
+	var bp = new Array("head", "shoulders","knees","toes");
+	var beforerevstr = bp.join();
+	bp.reverse();
+	var afterrevstr = bp.join();
+	document.write(beforerevstr+"</br>");
+	document.write(afterrevstr+"</br></br>");
+
+
 </script>
 
 </body>
