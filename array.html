@@ -32,7 +32,17 @@
 	stuff[0] = "banana";
 	stuff[1] = "pumpkins";
 
-	document.write(stuff[1]);
+	document.write(stuff[1]+"</br></br>");
+
+
+	// concat method of array
+	// Every array is an object.
+	var dudes = new Array("Alice", "Bob", "Cathy");
+	var chicks = new Array("apple","banana","cherry");
+	var people = dudes.concat(chicks);
+	for(var i=0;i<people.length;i++){
+		document.write(people[i]+"</br>");
+	}
 </script>
 
 </body>
