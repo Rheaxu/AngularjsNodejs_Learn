@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+	//First method to create an array
+	var people = new Array("first", "second","third","fourth");
+	document.write(people[3]);
+
+	// Second method to create an array with the number of undefined elements.
+	// If a value is assigned to the element whose position is after the specified array length, the array will automatically be extended to the new length.
+	var things = new Array(3);
+
+	things[0] = "book";
+	things[1] = "store";
+	things[2] = "piano";
+	things[3] = "hello";
+	for(var i=0;i<things.length;i++){
+		document.write(things[i]+"</br>");
+	}
+
+	// Third method to create an array
+	var stuff = new Array();
+	var x = 9;
+	var tuna = 65-54;
+	stuff[0] = "banana";
+	stuff[1] = "pumpkins";
+
+	document.write(stuff[1]);
+</script>
+
+</body>
+</html>
