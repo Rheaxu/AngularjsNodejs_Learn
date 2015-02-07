@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<script type="text/javascript">
+
+	</script>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+
+	//add the sum method to the prototype of Array, which will make any new instance of array have the new method
+	Array.prototype.sum = function(){
+		var result = 0;
+		for(var i=0;i<this.length;i++){
+			result+= this[i];
+		}
+
+		return result;
+	}
+	document.write([1,2,3,4].sum());
+</script>
+</body>
+</html>
