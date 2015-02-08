@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<script type="text/javascript">
+
+
+		/*
+		object constructor: good for creating multiple instances of similar objects.
+		To write a constructor function, we should maintain the following rules. 
+			1) The constructor function name will be the object type name. 
+			2) In the constructor function, this operator is used to refer the current object. 
+			3) The properties/methods have their values defined after an equal sign '='. 
+			4) There will be no "return" statement in the constructor function. 
+		*/	
+		function Blueprint(name,number){
+			this.name = name;
+			this.number = number;
+		}
+
+		var object1 = new Blueprint("contructor1", 1);
+
+		// object initializer:Using object initializers is sometimes referred to as creating objects with literal notation.
+		object2 = {name:"initializer", number:2};	
+	</script>
+	<title></title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		document.write("The constructor object is name: "+object1.name+" number: "+object1.number+"</br>");
+	document.write("The initializer object is name: "+object2.name+" number: "+object2.number+"</br>");	</script>
+</body>
+</html>
