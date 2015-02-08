@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<script type="text/javascript">
+		function validator(){
+			if(document.rheasForm.thebox.checkbox)
+				alert("You chcked it!");
+			else
+				alert("You didn't check it");
+		}
+	</script>
+	<title></title>
+</head>
+<body>
+<form name="rheasForm">
+	<input type="checkbox" name="thebox"/>
+	<input type="button" value="Press me!" onclick="validator()" />
+</form>
+</body>
+</html>
