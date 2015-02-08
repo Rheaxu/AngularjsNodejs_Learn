@@ -9,12 +9,12 @@
 
 <script type="text/javascript">
 
-	//First method to create an array
+	/*First method to create an array*/
 	var people = new Array("first", "second","third","fourth");
 	document.write(people[3]);
 
-	// Second method to create an array with the number of undefined elements.
-	// If a value is assigned to the element whose position is after the specified array length, the array will automatically be extended to the new length.
+	/* Second method to create an array with the number of undefined elements.
+	 If a value is assigned to the element whose position is after the specified array length, the array will automatically be extended to the new length.*/
 	var things = new Array(3);
 
 	things[0] = "book";
@@ -25,7 +25,7 @@
 		document.write(things[i]+"</br>");
 	}
 
-	// Third method to create an array
+	/* Third method to create an array*/
 	var stuff = new Array();
 	var x = 9;
 	var tuna = 65-54;
@@ -35,8 +35,8 @@
 	document.write(stuff[1]+"</br></br>");
 
 
-	// concat method of array
-	// Every array is an object.
+	/* concat method of array
+	 Every array is an object.*/
 	var dudes = new Array("Alice", "Bob", "Cathy");
 	var chicks = new Array("apple","banana","cherry");
 	var people = dudes.concat(chicks);
@@ -45,7 +45,7 @@
 	}
 
 
-	// join method of array
+	/* join method of array*/
 	var movies = new Array("Avatar", "Good Will Hunting", "Venilla Sky", "Fight club");
 
 	var string1 = movies.join();
@@ -54,13 +54,13 @@
 	document.write(string1+"</br>");
 	document.write(string2+"</br></br>");
 
-	// pop method of array: pop out the last element in the array
+	/* pop method of array: pop out the last element in the array*/
 	document.write(movies[3]+"</br>");
 	var p = movies.pop();
 	document.write(movies[3]+"</br>");
 	document.write(p+"</br></br>");
 
-	// reverse method of array
+	/* reverse method of array*/
 	var bp = new Array("head", "shoulders","knees","toes");
 	var beforerevstr = bp.join();
 	bp.reverse();
@@ -69,23 +69,42 @@
 	document.write(afterrevstr+"</br></br>");
 
 
-	// push methd of array
+	/* push methd of array*/
 	bp.push("tongue","liver");
 	bp.push("hand");
 	document.write(bp.join()+"</br></br>");
 
-	// sort method of array
+	/* sort method of array*/
 	bp.sort();
 	document.write(bp.join()+"</br></br>");
 
 
-	// Add array elements using loop and prompt
+	/* Add array elements using loop and prompt*/
 	var crap = new Array(3);
 	for(i=0;i<3;i++){
 		crap[i] = prompt("Add something to the Array:","");
 	}
-	document.write(crap[0]+crap[1]+crap[2]);
+	document.write(crap[0]+crap[1]+crap[2]+"</br></br>");
 
+
+	/* There is no Associative Array in Javascript*/
+	//If you use a named index, when accessing an array, JavaScript will redefine the array to a standard object, and all array methods and properties will produce undefined or incorrect results.
+	var person = [];
+	person["firstName"] = "john";
+	person["lastName"] = "Doe";
+	person["age"] = 46;
+	document.write("The length of person is:"+person.length+"</br>");	// person.length will return 0
+	document.write("The first elements of person is: "+person[0]+"</br>");// person[0] will return undefined
+
+	document.write("The type of person is array? - "+isArray(person)+"</br>");
+	document.write(typeof person);		// returns object, becuase a JavaScript array is an object
+	// Recognize an Array
+	var arr = ["hello","world","today","work"];
+	document.write("The method of arr is: - "+isArray(arr)+"</br>");
+
+	function isArray(myArray){
+		return myArray.constructor.toString().indexOf("Array")>-1;
+	}
 </script>
 
 </body>
