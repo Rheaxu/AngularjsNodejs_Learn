@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="APP">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<name data-first="Alice" data-last="Wonderland"></name>
+	<h1 nameinfo="" data-first="Bob" data-last="Stone"></h1>
+	<h1 class="namer" data-first="Charlie" data-last="Marly"></h1>
+	<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+	<script type="text/javascript" src="namer.js"></script>
+	<script type="text/javascript">
+		var APP = angular.module("APP",['namer','nameinfo']);	//The second arg is taken for dependency injection
+		/*This is not completely reusable
+		*/
+		APP.directive('name',function(){
+			return {
+				scope:true,	//or {}, Without this, all the fullName will be Charlie
+				restrict:'E',	//Element
+				link:function(scope,e,a){
+					scope.fullName = a.first+' '+a.last;
+				},
+				replace:true,	//replace in dynamic data the entire tag with our template (i.e. name) instead of using the <h1 class="ng-binding"></h1>
+				template:"<h1>{{fullName}}</h1>"
+			}
+		});
+	</script>
+</body>
+</html>
