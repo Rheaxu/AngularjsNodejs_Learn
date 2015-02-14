@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="APP">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap-css/css/bootstrap.css"/>
+</head>
+<body>
+<!--The watch module in Angularjs is similar to event handler in JQuery-->
+
+	<div class="container" ng-controller="theController">
+		<select ng-model="countSelection" ng-options="n for n in [5,10,15,20]"></select>
+		<h1>{{people[0].fname}}</h1>
+		<p>{{whenChanged}}</p>
+		<div ng-repeat="person in people">
+			<input type="text" ng-model="person.fname">
+		</div>
+	</div>
+	<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+	<script type="text/javascript">
+		angular.module("APP",[]).controller("theController",['$scope','$http', function($scope,$http){
+			$scope.getPeople = function(count){
+				$http.jsonp("http://www.filltext.com/?rows="+count+"&fname={firstName}&callback=JSON_CALLBACK").success(function(data){
+					$scope.people = data
+				})
+			}
+			$scope.countSelection = 10;
+			//$scope.getPeople($scope.countSelection)
+			$scope.$watch("countSelection",function(newValue,oldValue){
+				$scope.getPeople(newValue)
+			})
+			$scope.$watch("people",function(n,o){
+				$scope.whenChanged = Date().toString();
+			},true)	//true does a deep evaluation of object equality
+		}])
+	</script>
+</body>
+</html>
