@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+	<title></title>
+</head>
+
+<body>
+	<script type="text/javascript">
+		/*
+		setInterval() and clearInterval() method
+		*/
+		// Alert "Hello every 3 seconds"
+		// var myVar;
+		// function myFunction(){
+		// 	myVar = setInterval(alertFunc,3000);
+		// }
+		// function alertFunc(){
+		// 	alert("Hello!");
+		// }
+		// myFunction();
+
+		//Display the current time
+		var myVar = setInterval(function() {myTimer()},1000);
+		function myTimer(){
+			var d = new Date();
+			// The innerHTML property sets or returns the HTML content (inner HTML) of an element.
+			document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+		}
+		function stoptime(){
+			clearInterval(myVar);
+			setInterval("printTime()",1000);
+		}
+
+
+		/* Get 
+		*/
+		function printTime(){
+			var now = new Date();
+			var hours = now.getHours();
+			var mins = now.getMinutes();
+			var seconds = now.getSeconds();
+			document.write(hours+":"+mins+":"+seconds+"</br>")
+		}
+		//setInterval("printTime()",1000);
+	</script>
+	<p id="demo"></p>
+	<button onclick = "stoptime()">Stop Time</button>
+</body>
+</html>

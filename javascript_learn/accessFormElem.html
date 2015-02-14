@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<form name="rheasForm">
+	Username: <input type="text" name="username"/>
+	Password: <input type="password" name="password">
+	<input type="submit" value="Submit!">
+</form>
+
+<script type="text/javascript">
+	var x = document.forms[0].elements[0].type;	//access to the first element in the form
+	var x1 = document.rheasForm.elements[0].type;	//Do the same thing as last line.
+	document.write(x+"</br>");
+	document.write(x1+"</br>");
+</script>
+</body>
+</html>
