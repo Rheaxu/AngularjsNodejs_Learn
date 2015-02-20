@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang='en' ng-app='APP'>
+<head>
+	<title>Customer Filters</title>
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap-css/css/bootstrap.css"/>
+</head>
+<body>
+
+	<div class="container" ng-controller="theController">
+		<input type="text" ng-model="search.fname">
+		<table class="table table-striped table-bordered">
+			<thead>
+				<td>id</td>
+				<td>first</td>
+				<td>last</td>
+				<td>city</td>
+			</thead>
+			<tbody>
+				<!--tr ng-repeat="user in users | orderBy:['fname','lname']"-->
+				<!-- add negative mark before fname will sort the other way around; sort by one field doens't need []-->
+				<tr ng-repeat="user in users | filter:search">
+					<td>{{user.id | currency}}</td>
+					<td>{{user.fname | uppercase}}</td>
+					<td>{{user.lname | lowercase}}</td>
+					<td>{{user.city}}</td>
+				</tr>
+			</tbody>
+		</table>
+		
+	</div>
+	<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+	<script>
+		angular.module('APP',[]).
+		controller('theController',['$scope','$http',function($scope,$http){
+			$http.jsonp('http://www.filltext.com/?rows=30&id={index}&fname={firstName}&lname={lastName}&city={city}&callback=JSON_CALLBACK').success(function(data){
+				$scope.users = data
+			})
+		}])
+	</script>
+</body>
+</html>
