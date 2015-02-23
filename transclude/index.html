@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="APP">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		p{
+			color:blue;
+		}
+	</style>
+</head>
+<body>
+<panel>
+	<paneltitle>This is the title</pagetitle>
+	<panelcontent>this is the content</panelcontent>
+</panel>
+	<!--paneltitle title="hello"></paneltitle-->
+	<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+	<script type="text/javascript">
+	/*transclusion consists of plucking out the content of a custom directive, processing it against right scope and then placing it at a marked position in the template of that directive*/
+
+		angular.module("APP",[]).
+		directive('paneltitle',function(){
+			return {
+				restrict:"E",
+				transclude:true,
+				template:"<h1 ng-transclude></h1>"
+				/*link:function(scope,element,attrs){
+					scope.title=attrs.title
+				},
+				template:"<h1>{{title}}</h1>"*/
+			}
+		}).
+		directive('panel',function(){
+			return {
+				restrict:"E",
+				transclude:true,
+				template:"<div style='border:1px solid red;padding:10px' ng-transclude></div>"
+			}
+		}).
+		directive('panelcontent',function(){
+			return {
+				restrict:"E",
+				transclude:true,
+				template:"<p ng-transclude></p>"
+			}
+		})
+	</script>
+</body>
+</html>
