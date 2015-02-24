@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="testapp">
+<head>
+	<title>Example2 of transclude</title>
+</head>
+<body>
+	<div ng-controller="parentController">
+		<button-bar>
+			<button class="primary ng-click=onPrimary1Click()">{{primary1Label}}</button>
+			<button class="primary">Primary2</button>
+		</button-bar>
+	</div>
+	<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+	<script type="text/javascript">
+		var testapp=angular.module("testapp",[]);
+
+		testapp.controller("parentController",['$scope','$window',function($scope,$window){
+			console.log("parentController scope id=",$scope.$id);
+			$scope.primary1Label="Prime1";
+			$scope.onPrimary1Click = function(){
+				$window.alert("Primary1 clicked");
+			};
+		}]);
+
+		testapp.directive("primary",function(){
+			return{
+				restrict:'C',
+				link:function(scope,element,attrs){
+					element.addClss('btn btn-primary');
+				}
+			}
+		});
+
+		testapp.directive("buttonBar",function(){
+			return{
+				restrict:"EA",
+				template:"<div class='span4 well clearfix'><div class='pull-right' ng-transclude></div></div>",
+				replace:true;
+				transclude:true
+			};
+		});
+	</script>
+
+</body>
+</html>
