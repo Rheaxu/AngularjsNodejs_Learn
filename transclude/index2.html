@@ -2,15 +2,16 @@
 <html ng-app="testapp">
 <head>
 	<title>Example2 of transclude</title>
+	<link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.css">
 </head>
 <body>
 	<div ng-controller="parentController">
 		<button-bar>
-			<button class="primary ng-click=onPrimary1Click()">{{primary1Label}}</button>
+			<button class="primary" ng-click="onPrimary1Click()">{{primary1Label}}</button>
 			<button class="primary">Primary2</button>
 		</button-bar>
 	</div>
-	<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+	<script type="text/javascript" src="../bower_components/angular/angular.js"></script>
 	<script type="text/javascript">
 		var testapp=angular.module("testapp",[]);
 
@@ -26,7 +27,7 @@
 			return{
 				restrict:'C',
 				link:function(scope,element,attrs){
-					element.addClss('btn btn-primary');
+					element.addClass('btn btn-primary');
 				}
 			}
 		});
@@ -35,7 +36,7 @@
 			return{
 				restrict:"EA",
 				template:"<div class='span4 well clearfix'><div class='pull-right' ng-transclude></div></div>",
-				replace:true;
+				replace:true,
 				transclude:true
 			};
 		});
