@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap-css/css/bootstrap.css"/>
+	<link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>
 </head>
 <body>
 <!--The watch module in Angularjs is similar to event handler in JQuery-->
@@ -16,7 +16,7 @@
 			<input type="text" ng-model="person.fname">
 		</div>
 	</div>
-	<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+	<script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
 	<script type="text/javascript">
 		angular.module("APP",[]).controller("theController",['$scope','$http', function($scope,$http){
 			$scope.getPeople = function(count){

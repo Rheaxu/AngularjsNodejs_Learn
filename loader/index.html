@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8"/>
 	<title>Document</title>
-	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap-css/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.css">
 </head>
 <body ng-controller="appController">
 	<div class="alert alert-info" ng-show="loading">Loading</div>
@@ -15,7 +15,7 @@
 		</ul>
 	</div>
 
-	<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+	<script type="text/javascript" src="../bower_components/angular/angular.js"></script>
 	<script>
 	angular.module("APP",[]).controller('myController',['$scope','$http',function($scope,$http){
 		/*$emit(name, args);
